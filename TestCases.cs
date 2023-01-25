@@ -41,7 +41,7 @@ namespace RegexTestCase
         [TestMethod]
         public void UseCase4()
         {
-            string mb = "91 7330827008";
+            string mb = "91 7330827087";
             bool expected = true;
             demo program = new demo();
             bool actual = program.validmobile(mb);
@@ -50,7 +50,7 @@ namespace RegexTestCase
         [TestMethod]
         public void UseCase5()
         {
-            string password = "Ooliisaap";
+            string password = "Ooliirest";
             bool expected = true;
             demo program = new demo();
             bool actual = program.validpwd1(password);
@@ -70,7 +70,7 @@ namespace RegexTestCase
         [TestMethod]
         public void UseCase7()
         {
-            string password = "Praveen9";
+            string password = "Prkash9";
             bool expected = true;
             demo program = new demo();
             bool actual = program.validpwd3(password);
@@ -80,7 +80,7 @@ namespace RegexTestCase
         [TestMethod]
         public void UseCase8()
         {
-            string password = "Pravee$9";
+            string password = "Prakash$9";
             bool expected = true;
             demo program = new demo();
             bool actual = program.validpwd(password);
