@@ -3,6 +3,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 
+
 namespace day16
 {
    
@@ -25,7 +26,14 @@ namespace day16
                 Console.WriteLine("enter your mail");
                 string mail = Console.ReadLine();
                 demo d1=new demo();
-                d1.validmail(mail);
+                try
+                {
+                    d1.validmail(mail);
+                }
+                catch (InvalidException e)
+                {
+                    Console.WriteLine("Oops {0} ! ", e.Message);
+                }
             }
             Console.WriteLine();
 
@@ -41,6 +49,33 @@ namespace day16
             try
             {
                 d.validname(name);
+            }
+            catch (InvalidException e)
+            {
+                Console.WriteLine("Oops {0} ! ", e.Message);
+            }
+
+            try
+            {
+                d.validname(lname);
+            }
+            catch (InvalidException e)
+            {
+                Console.WriteLine("Oops {0} ! ", e.Message);
+            }
+
+            try
+            {
+                d.validname(mb);
+            }
+            catch (InvalidException e)
+            {
+                Console.WriteLine("Oops {0} ! ", e.Message);
+            }
+
+            try
+            {
+                d.validname(pwd);
             }
             catch (InvalidException e)
             {
@@ -96,9 +131,8 @@ namespace day16
 
             else
             {
-                throw new InvalidException("invalid name");
-                Console.WriteLine("pattern First name is wrong");
-                return false;
+                throw new InvalidException("invalid first name");
+               
             }
         }
 
@@ -113,9 +147,8 @@ namespace day16
                 }
                 else
                 {
-                    Console.WriteLine("pattern Last name is wrong");
-                    return false;
-                }
+                throw new InvalidException("invalid last name");
+            }
 
             }
 
@@ -130,9 +163,8 @@ namespace day16
                 }
                 else
                 {
-                    Console.WriteLine("pattern mail ID  is wrong");
-                    return false;
-                }
+                throw new InvalidException("invalid mail");
+            }
             }
 
             public bool validmobile(string mb)
@@ -145,9 +177,8 @@ namespace day16
                 }
                 else
                 {
-                    Console.WriteLine("pattern mobile number  is wrong");
-                    return false;
-                }
+                throw new InvalidException("invalid mobile number");
+            }
             
         }
         public bool validpwd1(string pwd)
@@ -160,8 +191,7 @@ namespace day16
             }
             else
             {
-                Console.WriteLine("pattern password  is wrong");
-                return false;
+                throw new InvalidException("invalid password");
             }
         }
         public bool validpwd2(string pwd)
@@ -174,9 +204,8 @@ namespace day16
                 }
                 else
                 {
-                    Console.WriteLine("pattern password  is wrong");
-                    return false;
-                }
+                throw new InvalidException("invalid password");
+            }
             }
         public bool validpwd3(string pwd)
         {
@@ -188,8 +217,7 @@ namespace day16
             }
             else
             {
-                Console.WriteLine("pattern password  is wrong");
-                return false;
+                throw new InvalidException("invalid password");
             }
         }
         public bool validpwd(string pwd)
@@ -202,8 +230,7 @@ namespace day16
             }
             else
             {
-                Console.WriteLine("pattern password  is wrong");
-                return false;
+                throw new InvalidException("invalid password");
             }
         }
     }
